@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+// using JSON for styling
 const styles = {
     container: {
         padding: '10px 1vw',
@@ -38,11 +38,11 @@ const HomePage = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td style={styles.td}>Mark Jimenez</td>
+                        <td style={styles.td}>MarkJimenez</td>
                         <td style={styles.td}>Developer</td>
                     </tr>
                     <tr>
-                        <td style={styles.td}>Ivan Ibe</td>
+                        <td style={styles.td}>IvanIbe</td>
                         <td style={styles.td}>Designer</td>
                     </tr>
                 </tbody>
@@ -52,4 +52,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
