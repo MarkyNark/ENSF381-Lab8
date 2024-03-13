@@ -3,24 +3,28 @@ import { fetchProducts } from '../services/apiService';
 import { useProductsContext } from '../context/ProductsContext';
 
 const ProductList = () => {
-  const { products, setProducts } = useProductsContext();
+    const { setProducts } = useProductsContext();
+    const [products, setLocalProducts] = useState([]);
 
-  useEffect(() => {
-    const getProducts = async () => {
-      const data = await fetchProducts();
-      setProducts(data.products);
-    };
-    getProducts();
-  }, [setProducts]);
+    useEffect(() => {
+        const getProducts = async () => {
+            const data = await fetchProducts();
+            setLocalProducts(data.products);
+        };
+        getProducts();
+    }, []);
 
-  return (
-    <div>
-      {products.map((product) => (
-        <div key={product.id}>{product.title}</div>
-      ))}
-    </div>
-  );
+    useEffect(() => {
+        setProducts(products);
+    }, [products, setProducts]);
+
+    return (
+        <div>
+            {products.map((product) => (
+                <div key={product.id}>{product.title}</div>
+            ))}
+        </div>
+    );
 };
 
 export default ProductList;
-
